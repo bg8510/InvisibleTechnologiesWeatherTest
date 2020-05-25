@@ -1,19 +1,35 @@
-﻿function showWeather(cities: string[]) {
+﻿function convertTempFromKtoF(kTemp: number) {
 
-  //const cities = document.getElementById("citiesText").innerText
-  const xhttp = new XMLHttpRequest()
+  const kelvinConversionFactor = 273.15
+  const fTemp: number = (((Number(kTemp) - kelvinConversionFactor) * 9) / 5) + 32
+
+  return fTemp
+}
+
+async function showWeather(cities: string[]) {
+
   const apiKey: string = 'ce6afba319ef13d82791a0ae2b332982'
+  var response
 
-  alert("showWeather function has been triggered");
+  for (let i = 0; i < cities.length; i++)  {
 
-  for (let i in cities){
-    const apiString: string = "api.openweathermap.org/data/2.5/weather?id={" + cities[i] + "}& appid={" + apiKey + "}".trim()
+    if (isNaN(+cities[i])) {
+      const apiStringByName = 'https://api.openweathermap.org/data/2.5/weather?q=' + cities[i] + '&appid=' + apiKey
+      response = await fetch(apiStringByName)
+    }
+    else {
+      const apiStringByZip = 'https://api.openweathermap.org/data/2.5/weather?zip=' + cities[i].trim() + '&appid=' + apiKey
+      response = await fetch(apiStringByZip)
+    }
 
-    xhttp.open("GET", apiString, true);
-    xhttp.send()
+    const weatherData = await response.json()
+    const tempInF = convertTempFromKtoF(weatherData.main.temp)
+
+    console.log(weatherData)
+    console.log('Time: ' + new Date().toUTCString() + '\t City: ' + weatherData.name + '\t Current temperature: ' + tempInF.toFixed(0) + '\t Weather: ' + weatherData.weather[0].description)
+
   }
 
-  console.log
-    ("The time is: " + new Date().toUTCString())
-
+  return 0
+    
 }
