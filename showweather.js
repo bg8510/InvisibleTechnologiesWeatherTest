@@ -41,7 +41,7 @@ function convertTempFromKtoF(kTemp) {
 }
 function showWeather(cities) {
     return __awaiter(this, void 0, void 0, function () {
-        var apiKey, response, i, apiStringByName, apiStringByZip, weatherData, tempInF;
+        var apiKey, response, i, apiStringByName, apiStringByZip, weatherData, tempInF, e_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -49,7 +49,7 @@ function showWeather(cities) {
                     i = 0;
                     _a.label = 1;
                 case 1:
-                    if (!(i < cities.length)) return [3 /*break*/, 8];
+                    if (!(i < cities.length)) return [3 /*break*/, 9];
                     if (!isNaN(+cities[i])) return [3 /*break*/, 3];
                     apiStringByName = 'https://api.openweathermap.org/data/2.5/weather?q=' + cities[i] + '&appid=' + apiKey;
                     return [4 /*yield*/, fetch(apiStringByName)];
@@ -62,17 +62,22 @@ function showWeather(cities) {
                 case 4:
                     response = _a.sent();
                     _a.label = 5;
-                case 5: return [4 /*yield*/, response.json()];
+                case 5:
+                    _a.trys.push([5, 7, , 8]);
+                    return [4 /*yield*/, response.json()];
                 case 6:
                     weatherData = _a.sent();
                     tempInF = convertTempFromKtoF(weatherData.main.temp);
-                    console.log(weatherData);
-                    console.log('Time: ' + new Date().toUTCString() + '\t City: ' + weatherData.name + '\t Current temperature: ' + tempInF.toFixed(0) + '\t Weather: ' + weatherData.weather[0].description);
-                    _a.label = 7;
+                    console.log('Time: ' + new Date().toUTCString() + '\t City: ' + weatherData.name + '\t Current temperature: ' + tempInF.toFixed(0) + '°F\t Humidity: ' + weatherData.main.humidity + '%\t\tWeather: ' + weatherData.weather[0].description);
+                    return [3 /*break*/, 8];
                 case 7:
+                    e_1 = _a.sent();
+                    console.log("Weather data was not found for this location. \n" + e_1);
+                    return [3 /*break*/, 8];
+                case 8:
                     i++;
                     return [3 /*break*/, 1];
-                case 8: return [2 /*return*/, 0];
+                case 9: return [2 /*return*/, 0];
             }
         });
     });

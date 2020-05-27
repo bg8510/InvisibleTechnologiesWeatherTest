@@ -9,7 +9,7 @@
 async function showWeather(cities: string[]) {
 
   const apiKey: string = 'ce6afba319ef13d82791a0ae2b332982'
-  var response
+  let response
 
   for (let i = 0; i < cities.length; i++)  {
 
@@ -22,14 +22,17 @@ async function showWeather(cities: string[]) {
       response = await fetch(apiStringByZip)
     }
 
-    const weatherData = await response.json()
-    const tempInF = convertTempFromKtoF(weatherData.main.temp)
+    try {
 
-    console.log(weatherData)
-    console.log('Time: ' + new Date().toUTCString() + '\t City: ' + weatherData.name + '\t Current temperature: ' + tempInF.toFixed(0) + '\t Weather: ' + weatherData.weather[0].description)
+      const weatherData = await response.json()
+      const tempInF = convertTempFromKtoF(weatherData.main.temp)
 
+      console.log('Time: ' + new Date().toUTCString() + '\t City: ' + weatherData.name + '\t Current temperature: ' + tempInF.toFixed(0) + '°F\t Humidity: ' + weatherData.main.humidity + '%\t\tWeather: ' + weatherData.weather[0].description)
+    }
+    catch(e) {
+      console.log("Weather data was not found for this location. \n" + e)
+    }
   }
 
   return 0
-    
 }

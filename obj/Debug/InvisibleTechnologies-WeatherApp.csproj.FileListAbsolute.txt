@@ -1,7 +1,7 @@
 C:\Users\user\OneDrive\Documents\Visual Studio Repo\InvisibleTechnologies-WeatherApp\bin\TypeScriptHTMLApp1.dll.config
 C:\Users\user\OneDrive\Documents\Visual Studio Repo\InvisibleTechnologies-WeatherApp\bin\TypeScriptHTMLApp1.dll
 C:\Users\user\OneDrive\Documents\Visual Studio Repo\InvisibleTechnologies-WeatherApp\bin\TypeScriptHTMLApp1.pdb
-C:\Users\user\OneDrive\Documents\Visual Studio Repo\InvisibleTechnologies-WeatherApp\obj\Debug\InvisibleTechnologies-WeatherApp.csprojAssemblyReference.cache
 C:\Users\user\OneDrive\Documents\Visual Studio Repo\InvisibleTechnologies-WeatherApp\obj\Debug\InvisibleTechnologies-WeatherApp.csproj.CoreCompileInputs.cache
 C:\Users\user\OneDrive\Documents\Visual Studio Repo\InvisibleTechnologies-WeatherApp\obj\Debug\TypeScriptHTMLApp1.dll
 C:\Users\user\OneDrive\Documents\Visual Studio Repo\InvisibleTechnologies-WeatherApp\obj\Debug\TypeScriptHTMLApp1.pdb
+C:\Users\user\OneDrive\Documents\Visual Studio Repo\InvisibleTechnologies-WeatherApp\obj\Debug\InvisibleTechnologies-WeatherApp.csprojAssemblyReference.cache

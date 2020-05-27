@@ -1,22 +1,11 @@
 ﻿function buttonWasClicked() {
-      
-  const cities: string[] = document.getElementById('citiesText').innerHTML.split(',')
 
-  //for (let i = 0; i < cities.length; i++) {
+  const cities: string[] = (<HTMLInputElement>document.getElementById('citiesText')).value.split(',')
 
-  //  if (!isNaN(+cities[i])) {
-
-  //    console.log(i + "  " + cities[i])
-  //    cities.splice(i, 1, cities[i].trim())
-
-  //    cities[i - 1] = cities[i - 1] + ',' + cities[i]
-  //    cities.splice(i, 1)
-  //  }
-  //}
   showWeather(cities)
 }
 
 
 window.onload = () => {
-  document.getElementById("citiesText").innerText = 'Mountain View, Tahlequah, New Orleans, 69138, Mos Eisley'
+  (<HTMLInputElement>document.getElementById('citiesText')).value = 'Mountain View, Tahlequah, Mos Eisley, 69138, New Orleans'
 }
